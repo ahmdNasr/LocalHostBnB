@@ -2,7 +2,7 @@
 
 ## Features / Use-Cases
 
-- Registrieren
+- [DONE] Registrieren
 - Login
 - Stay Logged in Feature (Refresh token + Cookies)
 - Forgot Password
