@@ -9,6 +9,7 @@ async function registerUser({
   profilePicture,
   bio,
 }) {
+  // connectToDatabase aufrufen
   const foundUser = await User.findOne({ email }).exec();
   if (foundUser) {
     throw new Error("User with this Email already exists");
@@ -24,7 +25,14 @@ async function registerUser({
     profilePicture,
     bio,
   });
-  return newUser;
+  return {
+    _id: newUser._id,
+    firstName: newUser.firstName,
+    lastName: newUser.lastName,
+    email: newUser.email,
+    profilePicture: newUser.profilePicture,
+    bio: newUser.bio,
+  };
 }
 
 module.exports = {
