@@ -3,7 +3,7 @@
 ## Features / Use-Cases
 
 - [DONE] Registrieren
-- Login
+- [DONE] Login
 - Stay Logged in Feature (Refresh token + Cookies)
 - Forgot Password
 - Edit Profile
