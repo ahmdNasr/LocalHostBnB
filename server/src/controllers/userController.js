@@ -46,7 +46,25 @@ async function postLogin(req, res) {
   }
 }
 
+async function postRefreshToken(req, res) {
+  try {
+    const userId = req.verifiedUserClaims.sub;
+    const result = await UserService.refreshToken({ userId });
+    return res.json({
+      status: "ok",
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "error",
+      error: { message: error.message },
+    });
+  }
+}
+
 module.exports = {
   postLogin,
   postRegister,
+  postRefreshToken,
 };
