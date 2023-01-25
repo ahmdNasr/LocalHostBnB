@@ -60,7 +60,7 @@ const RegisterForm = () => {
         onChange={(e) => setLastName(e.target.value)}
       />
       <input
-        type="text"
+        type="email"
         placeholder="tom.nasr@example.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}

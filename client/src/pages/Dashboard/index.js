@@ -1,4 +1,5 @@
-const DashboardPage = () => {
+const DashboardPage = ({ token }) => {
+  console.log("inside dashboard, token:", token);
   return (
     <div>
       <h1>Dashboard</h1>

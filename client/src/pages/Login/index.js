@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
-const LoginPage = () => {
+const LoginPage = ({ setToken }) => {
   return (
     <div>
       <h1>Login</h1>
-      <LoginForm />
+      <LoginForm setToken={setToken} />
+      <p>
+        Dont't have and account? <Link to="/register">Create Account</Link>
+      </p>
     </div>
   );
 };
