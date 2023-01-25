@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const jwtSecret = process.env.JWT_SECRET;
 if (!jwtSecret) {
-  console, log("jwtSecret ist not defined");
+  console.log("jwtSecret ist not defined");
   process.exit(1);
 }
 
