@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 300px;
+  width: 30vw;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 32px;
+}
+
+form input,
+form button {
+  border-radius: 6px;
+  border: none;
+  font-size: large;
+  min-height: 30px;
+  padding: 4px;
+}
+
+form button {
+  color: white;
+  background-color: blue;
+  font-size: larger;
+  padding: 16px;
+}
+
+.error-message {
+  color: red;
+}
