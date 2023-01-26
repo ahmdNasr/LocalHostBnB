@@ -7,7 +7,7 @@ const LoginPage = ({ setToken }) => {
       <h1>Login</h1>
       <LoginForm setToken={setToken} />
       <p>
-        Dont't have and account? <Link to="/register">Create Account</Link>
+        Dont't have an account? <Link to="/register">Account ++</Link>
       </p>
     </div>
   );
