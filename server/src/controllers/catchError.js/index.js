@@ -1,7 +1,7 @@
 function catchErrors(controllerFn) {
-  return (req, res, next) => {
+  return async (req, res, next) => {
     try {
-      controllerFn(req, res, next);
+      await controllerFn(req, res, next);
     } catch (error) {
       console.log(error);
       res.status(500).json({
