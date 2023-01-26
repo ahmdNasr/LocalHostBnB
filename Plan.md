@@ -9,6 +9,7 @@
 - Edit Profile
 - Show Profile (of any user)
   With his accomidations + rating(s)
+- [DONE] Offer Accommodations
 - View/Search Accommodations w/ Filter for
   - Date-Range
   - Location City
