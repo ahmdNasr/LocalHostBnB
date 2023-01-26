@@ -26,6 +26,40 @@ async function postOfferStay(req, res) {
   }
 }
 
+async function getListStays(_, res) {
+  try {
+    const result = await StayService.listStays();
+    return res.json({
+      status: "ok",
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "error",
+      error: { message: error.message },
+    });
+  }
+}
+async function getShowStay(req, res) {
+  try {
+    const stayId = req.params.stayId;
+    const result = await StayService.showStay({ stayId });
+    return res.json({
+      status: "ok",
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "error",
+      error: { message: error.message },
+    });
+  }
+}
+
 module.exports = {
   postOfferStay,
+  getListStays,
+  getShowStay,
 };

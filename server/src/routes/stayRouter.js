@@ -4,6 +4,16 @@ const { makeAuthMiddleware } = require("../middleware/doAuth");
 
 const stayRouter = express.Router();
 
+stayRouter.get(
+  "/",
+  makeAuthMiddleware({ tokenType: "access" }),
+  stayController.getListStays
+);
+stayRouter.get(
+  "/:stayId",
+  makeAuthMiddleware({ tokenType: "access" }),
+  stayController.getShowStay
+);
 stayRouter.post(
   "/",
   makeAuthMiddleware({ tokenType: "access" }),
