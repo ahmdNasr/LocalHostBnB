@@ -63,6 +63,7 @@ form button {
   background-color: #d8ad43;
   font-size: larger;
   padding: 16px;
+  cursor: pointer;
 }
 
 .error-message {

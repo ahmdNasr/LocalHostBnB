@@ -7,6 +7,7 @@ import "./App.css";
 import DashboardPage from "./pages/Dashboard";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
+import Protected from "./components/Protected";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -19,7 +20,14 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage setToken={setToken} />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<DashboardPage token={token} />} />
+          <Route
+            path="/dashboard"
+            element={
+              <Protected token={token}>
+                <DashboardPage token={token} />
+              </Protected>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
