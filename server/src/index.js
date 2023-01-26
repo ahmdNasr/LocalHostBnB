@@ -1,7 +1,7 @@
 const cors = require("cors");
 const morgan = require("morgan");
 const express = require("express");
-const { userRouter } = require("./routes");
+const { userRouter, stayRouter } = require("./routes");
 const { connectToDatabase } = require("./models/mongoose-setup");
 
 function configServer() {
@@ -13,7 +13,7 @@ function configServer() {
   app.use(express.json());
 
   app.use("/api/v1/users", userRouter);
-  // app.use("/api/v1/stays", () => {});
+  app.use("/api/v1/stays", stayRouter);
   // app.use("/api/v1/chats", () => {});
 
   return new Promise((resolve, _) => {
