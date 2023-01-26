@@ -5,6 +5,7 @@ import { ReactComponent as Logo } from "./logo.svg";
 
 import "./App.css";
 import DashboardPage from "./pages/Dashboard";
+import ProfilePage from "./pages/Profile";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import Protected from "./components/Protected";
@@ -25,6 +26,14 @@ function App() {
             element={
               <Protected token={token}>
                 <DashboardPage token={token} />
+              </Protected>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Protected token={token}>
+                <ProfilePage token={token} />
               </Protected>
             }
           />
