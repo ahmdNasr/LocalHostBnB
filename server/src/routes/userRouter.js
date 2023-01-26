@@ -2,14 +2,14 @@ const express = require("express");
 const { userController } = require("../controllers");
 const { makeAuthMiddleware } = require("../middleware/doAuth");
 
-const userApp = express.Router();
+const userRouter = express.Router();
 
-userApp.post("/login", userController.postLogin);
-userApp.post("/register", userController.postRegister);
-userApp.post(
+userRouter.post("/login", userController.postLogin);
+userRouter.post("/register", userController.postRegister);
+userRouter.post(
   "/refresh-token",
   makeAuthMiddleware({ tokenType: "refresh" }),
   userController.postRefreshToken
 );
 
-module.exports = userApp;
+module.exports = userRouter;

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import logo from "./logo.svg";
+import { ReactComponent as Logo } from "./logo.svg";
 
 import "./App.css";
 import DashboardPage from "./pages/Dashboard";
@@ -11,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <Logo />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
