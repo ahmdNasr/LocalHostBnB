@@ -1,62 +1,40 @@
 const { StayService } = require("../services");
+const { catchErrors } = require("./catchError.js");
 
-async function postOfferStay(req, res) {
-  try {
-    const stayInfos = {
-      title: req.body.title,
-      description: req.body.description,
-      hostId: req.verifiedUserClaims.sub, // Take userId of "logged in" user (aka form his verified Token)
-      price: req.body.price,
-      location: req.body.location,
-      highlights: req.body.highlights,
-      pictures: req.body.pictures,
-    };
+const postOfferStay = catchErrors(async (req, res) => {
+  const stayInfos = {
+    title: req.body.title,
+    description: req.body.description,
+    hostId: req.verifiedUserClaims.sub, // Take userId of "logged in" user (aka form his verified Token)
+    price: req.body.price,
+    location: req.body.location,
+    highlights: req.body.highlights,
+    pictures: req.body.pictures,
+  };
 
-    const result = await StayService.offerStay(stayInfos);
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
+  const result = await StayService.offerStay(stayInfos);
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
-async function getListStays(_, res) {
-  try {
-    const result = await StayService.listStays();
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
-async function getShowStay(req, res) {
-  try {
-    const stayId = req.params.stayId;
-    const result = await StayService.showStay({ stayId });
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
+const getListStays = catchErrors(async (req, res) => {
+  const result = await StayService.listStays();
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
+const getShowStay = catchErrors(async (req, res) => {
+  const stayId = req.params.stayId;
+  const result = await StayService.showStay({ stayId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
 module.exports = {
   postOfferStay,

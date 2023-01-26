@@ -1,67 +1,44 @@
 const { UserService } = require("../services");
+const { catchErrors } = require("./catchError.js");
 
-async function postRegister(req, res) {
-  try {
-    const userInfos = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password,
-      profilePicture: req.body.profilePicture,
-      bio: req.body.bio,
-    };
+const postRegister = catchErrors(async (req, res) => {
+  const userInfos = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+    profilePicture: req.body.profilePicture,
+    bio: req.body.bio,
+  };
 
-    const result = await UserService.registerUser(userInfos);
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
+  const result = await UserService.registerUser(userInfos);
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
-async function postLogin(req, res) {
-  try {
-    const credentials = {
-      email: req.body.email,
-      password: req.body.password,
-    };
+const postLogin = catchErrors(async (req, res) => {
+  const credentials = {
+    email: req.body.email,
+    password: req.body.password,
+  };
 
-    const result = await UserService.loginUser(credentials);
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
+  const result = await UserService.loginUser(credentials);
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
-async function postRefreshToken(req, res) {
-  try {
-    const userId = req.verifiedUserClaims.sub;
-    const result = await UserService.refreshToken({ userId });
-    return res.json({
-      status: "ok",
-      result,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "error",
-      error: { message: error.message },
-    });
-  }
-}
+const postRefreshToken = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const result = await UserService.refreshToken({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
 module.exports = {
   postLogin,
