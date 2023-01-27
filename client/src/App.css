@@ -1,3 +1,21 @@
+.stays-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 20px;
+}
+
+.stay-grid-item {
+  cursor: pointer;
+}
+
+.stay-grid-item img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
 form {
   margin: 0 auto;
   display: flex;

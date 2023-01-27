@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { apiBaseUrl } from "../../api";
+import LocationMap from "../../components/LocationMap";
+// import LocationMap from "../../components/LocationMap";
 
 const AddStayForm = ({ token }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(25);
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState("");
   const [highlights, setHighlights] = useState({
     maxGuests: 10,
     rooms: 4,
@@ -84,6 +86,15 @@ const AddStayForm = ({ token }) => {
             onChange={(e) => setPrice(Number(e.target.value))}
           />
         </div>
+
+        <label for="maxGuests-slider">Location</label>
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+
+        {/* <LocationMap onChange={(location) => setLocation(location)} /> */}
 
         <label for="maxGuests-slider">Maximum Guests</label>
         <div class="slider-box">

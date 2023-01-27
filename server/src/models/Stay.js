@@ -6,16 +6,17 @@ const staySchema = new mongoose.Schema(
     description: { type: String, default: "" },
     hostId: { type: mongoose.Types.ObjectId, required: true },
     price: { type: Number, required: true },
-    location: {
-      address: { type: String, required: true },
-      zip: { type: String, required: true },
-      city: { type: String, required: true },
-      country: { type: String, required: true },
-      geo: {
-        langitude: { type: String, required: true },
-        latitude: { type: String, required: true },
-      },
-    },
+    // location: {
+    //   address: { type: String, required: true },
+    //   zip: { type: String, required: true },
+    //   city: { type: String, required: true },
+    //   country: { type: String, required: true },
+    //   geo: {
+    //     langitude: { type: String, required: true },
+    //     latitude: { type: String, required: true },
+    //   },
+    // },
+    location: { type: String, required: true },
     highlights: {
       maxGuests: { type: Number, required: true },
       rooms: { type: Number, required: true },

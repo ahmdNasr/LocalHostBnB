@@ -26,6 +26,7 @@ const LoginForm = ({ setToken }) => {
           setErrorMessage(error.message);
           return;
         }
+        // result: { acccessToken, refreshToken }
         setToken(result.accessToken);
         return navigate("/dashboard");
       });
