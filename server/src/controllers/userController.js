@@ -24,10 +24,18 @@ const postLogin = catchErrors(async (req, res) => {
     password: req.body.password,
   };
 
-  const result = await UserService.loginUser(credentials);
+  const { accessToken, refreshToken } = await UserService.loginUser(
+    credentials
+  );
+
+  if (refreshToken) {
+    // save refresh token into cookie
+    req.session.refreshToken = refreshToken;
+  }
+
   return res.json({
     status: "ok",
-    result,
+    result: { accessToken, refreshToken },
   });
 });
 

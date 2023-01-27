@@ -41,8 +41,8 @@ function makeAuthMiddleware({ tokenType = "access" }) {
     return token;
   }
 
-  function extractTokenFromBody(req) {
-    const token = req.body.refreshToken;
+  function extractTokenFromCookieOrBody(req) {
+    const token = req.session?.refreshToken || req.body?.refreshToken;
     if (!token) {
       throw new Error("refresh token must be set");
     }
@@ -51,7 +51,7 @@ function makeAuthMiddleware({ tokenType = "access" }) {
 
   function extractToken(req) {
     return tokenType === "refresh"
-      ? extractTokenFromBody(req) // FIXME: take refresh token from Cookies instead of body !!!!
+      ? extractTokenFromCookieOrBody(req) // FIXME: take refresh token from Cookies instead of body !!!!
       : extractTokenFromHeaders(req);
   }
 }
