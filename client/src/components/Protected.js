@@ -6,20 +6,22 @@ const Protected = ({ token, setToken, children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!token) {
-      fetch(`${apiBaseUrl}/users/refresh-token`, {
-        method: "POST",
-        credentials: "include", // here: take refresh token from httpOnly secure cookie and send it
-      })
-        .then((res) => res.json())
-        .then(({ status, result }) => {
-          console.log(result.accessToken);
-          setLoading(false);
-          if (status === "ok") {
-            setToken(result.accessToken);
-          }
-        });
+    if (token) {
+      setLoading(true);
+      return;
     }
+
+    fetch(`${apiBaseUrl}/users/refresh-token`, {
+      method: "POST",
+      credentials: "include", // here: take refresh token from httpOnly secure cookie and send it
+    })
+      .then((res) => res.json())
+      .then(({ status, result }) => {
+        setLoading(false);
+        if (status === "ok") {
+          setToken(result.accessToken);
+        }
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

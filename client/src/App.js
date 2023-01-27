@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import logo from "./logo.svg";
 import { ReactComponent as Logo } from "./logo.svg";
@@ -9,9 +9,42 @@ import ProfilePage from "./pages/Profile";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import Protected from "./components/Protected";
+import { apiBaseUrl } from "./api";
 
 function App() {
   const [token, setToken] = useState(null);
+  console.log(Date.now(), token);
+  useEffect(() => {
+    if (!token) {
+      return;
+    }
+    // refresh token before it expires
+    const tokenPayloadBase64Str = token.split(".")[1];
+    const tokenPayloadJsonStr = atob(tokenPayloadBase64Str);
+    const tokenPayload = JSON.parse(tokenPayloadJsonStr);
+    const exp = tokenPayload.exp;
+    const nowInSeconds = Math.floor(Date.now() / 1000);
+
+    const tenSecondsBefore = 10;
+    const triggerSilentTokenRefreshInSeconds =
+      exp - nowInSeconds - tenSecondsBefore;
+
+    console.log({ triggerSilentTokenRefreshInSeconds });
+    const refreshTokenTimeoutID = setTimeout(() => {
+      console.log("about to do silet refresh");
+
+      fetch(`${apiBaseUrl}/users/refresh-token`, {
+        method: "POST",
+        credentials: "include", // here: take refresh token from httpOnly secure cookie and send it
+      })
+        .then((res) => res.json())
+        .then(({ result }) => {
+          setToken(result?.accessToken);
+        });
+    }, triggerSilentTokenRefreshInSeconds * 1000);
+
+    return () => clearTimeout(refreshTokenTimeoutID);
+  }, [token]);
 
   return (
     <div className="App">
