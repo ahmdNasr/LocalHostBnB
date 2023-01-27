@@ -24,7 +24,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <Protected token={token}>
+              <Protected token={token} setToken={setToken}>
                 <DashboardPage token={token} />
               </Protected>
             }
@@ -32,7 +32,7 @@ function App() {
           <Route
             path="/profile"
             element={
-              <Protected token={token}>
+              <Protected token={token} setToken={setToken}>
                 <ProfilePage token={token} />
               </Protected>
             }

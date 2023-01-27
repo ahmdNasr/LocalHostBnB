@@ -18,6 +18,7 @@ const LoginForm = ({ setToken }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
+      credentials: "include", // muss sein für refresh token! -- "save httpOnly cookie session"
     })
       .then((res) => res.json())
       .then(({ status, result, error }) => {
@@ -31,6 +32,7 @@ const LoginForm = ({ setToken }) => {
         return navigate("/dashboard");
       });
   }
+
   return (
     <form>
       <input
