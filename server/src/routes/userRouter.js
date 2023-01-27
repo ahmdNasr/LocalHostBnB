@@ -12,4 +12,9 @@ userRouter.post(
   userController.postRefreshToken
 );
 
+userRouter.post("/logout", (req, res) => {
+  req.session.refreshToken = null; // delete refresh token
+  res.json({ status: "ok", result: {} });
+});
+
 module.exports = userRouter;

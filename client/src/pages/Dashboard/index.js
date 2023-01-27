@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiBaseUrl } from "../../api";
+import DefaultPage from "../../components/DefaultPage";
 import Stay from "../../components/Stay";
 
 const DashboardPage = ({ token }) => {
@@ -26,7 +27,7 @@ const DashboardPage = ({ token }) => {
   }, []);
 
   return (
-    <>
+    <DefaultPage>
       <h1>Dashboard</h1>
       <Link to="/profile">Profile</Link>
       <main className="stays-container">
@@ -35,7 +36,7 @@ const DashboardPage = ({ token }) => {
         ))}
       </main>
       <p>{errorMessage}</p>
-    </>
+    </DefaultPage>
   );
 };
 

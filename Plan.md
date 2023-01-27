@@ -4,7 +4,8 @@
 
 - [DONE] Registrieren
 - [DONE] Login
-- Stay Logged in Feature (Refresh token + Cookies)
+- [DONE] Logout
+- [DONE] Stay Logged in Feature (Refresh token + Cookies)
 - Forgot Password
 - Edit Profile
 - Show Profile (of any user)
