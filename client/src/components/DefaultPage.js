@@ -14,29 +14,29 @@ const LogoutButton = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        navigate("/login");
+        navigate("/logout");
       });
   }
-  return <button onClick={logout}>Logout</button>;
+  return <button className="logout-button underlineHover" onClick={logout}>Logout</button>;
 };
 
 const DefaultPage = ({ children }) => {
   return (
     <div>
-      <nav className="top-bar">
+      <nav className="top-bar ">
         <Link to="/">
-          <Logo />
+          <Logo className="logo" />
         </Link>
         <ul>
-          <li>
+          <li className="underlineHover">
             <Link to="/dashboard">Dashboard</Link>
           </li>
-          <li>
+          <li className="underlineHover">
             <Link to="/profile">Profile</Link>
           </li>
         </ul>
+        <LogoutButton />
       </nav>
-      <LogoutButton />
       <div className="page-container">{children}</div>
     </div>
   );

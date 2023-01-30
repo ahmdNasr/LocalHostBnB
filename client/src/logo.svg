@@ -1,24 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" viewBox="0 0 1611 600">
-<defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" viewBox="0 0 1611 600"
+  class="logo">
+  <defs>
     <linearGradient id="linear-gradient" x1="0.048" y1="0.67" x2="0.973" y2="0.444" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#cc9f34"/>
-      <stop offset="1" stop-color="#eabd4d"/>
+      <stop offset="0" stop-color="#cc9f34"></stop>
+      <stop offset="1" stop-color="#eabd4d"></stop>
     </linearGradient>
-    <clipPath id="clip-Zeichenfläche_1">
-      <rect width="1611" height="600"/>
+    <clipPath id="clip-Zeichenfl\xE4che_1">
+      <rect width="1611" height="600"></rect>
     </clipPath>
   </defs>
-  <g id="Zeichenfläche_1" data-name="Zeichenfläche – 1" clip-path="url(#clip-Zeichenfläche_1)">
-    <rect width="1611" height="600" fill="#fff"/>
+  <g id="Zeichenfl\xE4che_1" data-name="Zeichenfl\xE4che \u2013 1" clip-path="url(#clip-Zeichenfl\xE4che_1)">
+    <rect width="1611" height="600" fill="transparent"></rect>
     <g id="Gruppe_6" data-name="Gruppe 6">
       <g id="Gruppe_5" data-name="Gruppe 5" transform="translate(22.334 0.058)">
-        <rect id="Rechteck_2" data-name="Rechteck 2" width="236" height="32" transform="translate(435.666 216.001) rotate(-30)" fill="url(#linear-gradient)"/>
-        <rect id="Rechteck_3" data-name="Rechteck 3" width="236" height="32" transform="translate(829.048 243.655) rotate(-150)" fill="url(#linear-gradient)"/>
-        <rect id="Rechteck_4" data-name="Rechteck 4" width="236" height="32" transform="translate(944.048 243.655) rotate(-150)" fill="url(#linear-gradient)"/>
-        <rect id="Rechteck_5" data-name="Rechteck 5" width="56" height="32" transform="translate(881.297 154.001) rotate(-90)" fill="#e6b949"/>
-      </g>
-      <text id="LOCALHOST_BNB" data-name="LOCALHOST BNB" transform="translate(348 333)" fill="#2b2b2b" font-size="70" font-family="Avenir-Book, Avenir" letter-spacing="0.2em"><tspan x="0" y="0">LOCALHOST BNB</tspan></text>
-      <text id="Premium" data-name="Ultra Premium Deluxe" transform="translate(383 429)" fill="#cc9f34" font-size="50" font-family="Avenir-Book, Avenir" letter-spacing="0.2em"><tspan x="0" y="0">Ultra Premium Deluxe</tspan></text>
+        <rect id="Rechteck_2" data-name="Rechteck 2" width="236" height="32"
+          transform="translate(435.666 216.001) rotate(-30)" fill="url(#linear-gradient)"></rect>
+        <rect id="Rechteck_3" data-name="Rechteck 3" width="236" height="32"
+          transform="translate(829.048 243.655) rotate(-150)" fill="url(#linear-gradient)"></rect>
+        <rect id="Rechteck_4" data-name="Rechteck 4" width="236" height="32"
+          transform="translate(944.048 243.655) rotate(-150)" fill="url(#linear-gradient)"></rect>
+        <rect id="Rechteck_5" data-name="Rechteck 5" width="56" height="32"
+          transform="translate(881.297 154.001) rotate(-90)" fill="#e6b949"></rect>
+      </g><text id="LOCALHOST_BNB" data-name="LOCALHOST BNB" transform="translate(348 333)" fill="#2b2b2b"
+        font-size="70" font-family="Avenir-Book, Avenir" letter-spacing="0.2em">
+        <tspan x="0" y="0">LOCALHOST BNB</tspan>
+      </text><text id="Premium" data-name="Ultra Premium Deluxe" transform="translate(383 429)" fill="#cc9f34"
+        font-size="50" font-family="Avenir-Book, Avenir" letter-spacing="0.2em">
+        <tspan x="0" y="0">Ultra Premium Deluxe</tspan>
+      </text>
     </g>
   </g>
 </svg>

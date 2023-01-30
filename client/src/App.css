@@ -70,3 +70,77 @@ form button {
   align-items: center;
   gap: 8px;
 }
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f7eed9;
+  box-shadow: 0px .5px 6px black;
+  border-radius: 0 0 25px 25px;
+}
+
+.top-bar ul {
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 1.4rem;
+
+}
+
+.top-bar ul a {
+  text-decoration: none;
+  border-radius: 15px;
+  color: #d8ad43;
+  font-weight: bold;
+  text-shadow: 0px 2px 2px #403314;
+  padding: 0;
+}
+
+.logout-button {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 15px;
+  border: none;
+  color: #d8ad43;
+  text-shadow: 0px 2px 2px #403314;
+  margin: 0 10vw 0 10vw;
+  cursor: pointer;
+
+}
+
+.top-bar ul a:hover {
+  color: #ac8a35;
+  font-size: 1.52rem;
+  font-size-adjust: 10px;
+
+}
+
+.logout-button:hover {
+  scale: 1.2;
+  color: #ac8a35;
+}
+
+.underlineHover:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #816728;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underlineHover:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.underlineHover {
+  position: relative;
+}
