@@ -6,7 +6,10 @@ const stayDefaultPicture =
 const Stay = ({ stay }) => {
   return (
     <div className="stay-grid-item">
-      <Link to={`/user/${stay.hostId}`} className="stay-host">
+      <Link
+        to={stay.isYourStay ? "/profile" : `/user/${stay.hostId}`}
+        className="stay-host"
+      >
         <img
           className="stay-host-avatar"
           src={stay.host.profilePicture}

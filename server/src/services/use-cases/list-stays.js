@@ -1,6 +1,6 @@
 const { Stay, User } = require("../../models");
 
-async function listStays({ hostId }) {
+async function listStays({ hostId, loggedInUserId }) {
   // const stays = await Stay.find(query).populate("hostId").exec(); // mongoose Lösung
   const query = typeof hostId !== "undefined" ? { hostId } : {};
   const stays = await Stay.find(query).exec(); // hostId can be from token, from query, or undefined!
@@ -16,6 +16,7 @@ async function listStays({ hostId }) {
     );
     return {
       ...stay.toObject(),
+      isYourStay: stay.hostId.toString() === loggedInUserId,
       host: {
         _id: hostUser._id,
         firstName: hostUser.firstName,
