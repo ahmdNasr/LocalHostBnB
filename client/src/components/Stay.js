@@ -3,6 +3,15 @@ const stayDefaultPicture =
 const Stay = ({ stay }) => {
   return (
     <div className="stay-grid-item">
+      <div className="stay-host">
+        <img
+          className="stay-host-avatar"
+          src={stay.host.profilePicture}
+          alt={`${stay.host.firstName} user avatar`}
+        />
+        {stay.host.firstName}
+        {stay.host.lastName}
+      </div>
       <img
         src={stay.pictures[0] || stayDefaultPicture}
         alt={`${stay.title} main`}
