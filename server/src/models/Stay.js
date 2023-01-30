@@ -4,7 +4,7 @@ const staySchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     description: { type: String, default: "" },
-    hostId: { type: mongoose.Types.ObjectId, required: true },
+    hostId: { type: mongoose.Types.ObjectId, ref: "User", required: true },
     price: { type: Number, required: true },
     // location: {
     //   address: { type: String, required: true },

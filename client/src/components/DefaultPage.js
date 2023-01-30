@@ -14,7 +14,7 @@ const LogoutButton = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        navigate("/logout");
+        navigate("/logout"); // LogoutPage will delete Token and navigate to /login
       });
   }
   return <button className="logout-button underlineHover" onClick={logout}>Logout</button>;

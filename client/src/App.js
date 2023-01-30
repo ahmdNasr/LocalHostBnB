@@ -10,6 +10,7 @@ import RegisterPage from "./pages/Register";
 import Protected from "./components/Protected";
 import { apiBaseUrl } from "./api";
 import LogoutPage from "./pages/Logout";
+import UserPage from "./pages/UserPage";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -67,6 +68,14 @@ function App() {
             element={
               <Protected token={token} setToken={setToken}>
                 <ProfilePage token={token} />
+              </Protected>
+            }
+          />
+          <Route
+            path="/user/:userId"
+            element={
+              <Protected token={token} setToken={setToken}>
+                <UserPage token={token} />
               </Protected>
             }
           />

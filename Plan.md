@@ -9,7 +9,7 @@
 - Forgot Password
 - Edit Profile
 - Show Profile (of any user)
-  With his accomidations + rating(s)
+- [DONE] With his accomidations + rating(s)
 - [DONE] Offer Accommodations
 - View/Search Accommodations w/ Filter for
   - Date-Range
@@ -18,6 +18,7 @@
   - Highlights / Features (Balcony, Room count, Sqm, Breakfast, ...)
   - Rating
   - Price Range
+  - hostId
 - Book Accommodation/Stay (main payment method: Bar)
   --> reserverd, others can not book in the same time
 - Cancel Stay reservation

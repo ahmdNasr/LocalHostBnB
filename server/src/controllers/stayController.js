@@ -21,8 +21,11 @@ const postOfferStay = catchErrors(async (req, res) => {
 
 const getListStays = catchErrors(async (req, res) => {
   const profileStaysOnly = req.query.onlyMyStays === "yes";
-  const hostId = req.verifiedUserClaims.sub;
-  const result = await StayService.listStays(profileStaysOnly ? { hostId, profileStaysOnly } : {});
+  const hostId = profileStaysOnly
+    ? req.verifiedUserClaims.sub
+    : req.query.hostId;
+  const loggedInUserId = req.verifiedUserClaims.sub;
+  const result = await StayService.listStays({ hostId, loggedInUserId });
   return res.json({
     status: "ok",
     result,
