@@ -1,13 +1,9 @@
 const { Stay } = require("../../models");
 
-async function listStays({ hostId }) {
-  if (hostId) {
-    const stays = await Stay.find({ hostId }).exec();
-    return stays;
-  } else {
-    const stays = await Stay.find().exec();
-    return stays;
-  }
+async function listStays({ hostId, profileStaysOnly }) {
+  const query = profileStaysOnly ? { hostId } : {};
+  const stays = await Stay.find(query).exec();
+  return stays;
 }
 
 module.exports = {
