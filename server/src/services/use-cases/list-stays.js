@@ -1,9 +1,9 @@
 const { Stay, User } = require("../../models");
 
-async function listStays({ hostId, profileStaysOnly }) {
-  const query = profileStaysOnly ? { hostId } : {};
+async function listStays({ hostId }) {
   // const stays = await Stay.find(query).populate("hostId").exec(); // mongoose Lösung
-  const stays = await Stay.find(query).exec();
+  const query = typeof hostId !== "undefined" ? { hostId } : {};
+  const stays = await Stay.find(query).exec(); // hostId can be from token, from query, or undefined!
 
   const hostIds = stays.map((stay) => stay.hostId);
   const users = await User.find({ _id: { $in: hostIds } });

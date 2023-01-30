@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { apiBaseUrl } from "../../api";
-import LocationMap from "../../components/LocationMap";
 // import LocationMap from "../../components/LocationMap";
 
 const AddStayForm = ({ token }) => {
