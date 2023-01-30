@@ -10,5 +10,3 @@ const LogoutPage = ({ setToken }) => {
 };
 
 export default LogoutPage;
-
-export default LogoutPage;
