@@ -9,6 +9,7 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import Protected from "./components/Protected";
 import { apiBaseUrl } from "./api";
+import LogoutPage from "./pages/Logout";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -51,6 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="/login" element={<LoginPage setToken={setToken} />} />
+          <Route path="/logout" element={<LogoutPage setToken={setToken} />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/dashboard"
