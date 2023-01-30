@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiBaseUrl } from "../../api";
 import DefaultPage from "../../components/DefaultPage";
-import Stay from "../../components/Stay";
+import StaysGrid from "../../components/StaysGrid";
 
 const DashboardPage = ({ token }) => {
   const [stays, setStays] = useState([]);
@@ -29,12 +28,7 @@ const DashboardPage = ({ token }) => {
   return (
     <DefaultPage>
       <h1>Dashboard</h1>
-      <Link to="/profile">Profile</Link>
-      <main className="stays-container">
-        {stays.map((stay) => (
-          <Stay key={stay._id} stay={stay} />
-        ))}
-      </main>
+      <StaysGrid stays={stays} />
       <p>{errorMessage}</p>
     </DefaultPage>
   );
