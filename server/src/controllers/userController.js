@@ -48,8 +48,18 @@ const postRefreshToken = catchErrors(async (req, res) => {
   });
 });
 
+const getShowProfile = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const result = await UserService.showProfile({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 module.exports = {
   postLogin,
   postRegister,
   postRefreshToken,
+  getShowProfile,
 };

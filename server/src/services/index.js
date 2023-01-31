@@ -4,11 +4,13 @@ const { offerStay } = require("./use-cases/offer-stay.js");
 const { refreshToken } = require("./use-cases/refresh-token.js");
 const { registerUser } = require("./use-cases/register-user.js");
 const { showStay } = require("./use-cases/show-stay.js");
+const { showProfile } = require("./use-cases/show-profile.js");
 
 const UserService = {
   loginUser,
   registerUser,
   refreshToken,
+  showProfile,
 };
 
 const StayService = {

@@ -3,6 +3,7 @@ import { apiBaseUrl } from "../../api";
 import DefaultPage from "../../components/DefaultPage";
 import StaysGrid from "../../components/StaysGrid";
 import AddStayForm from "./AddStayForm";
+import ProfileInfo from "./ProfileInfo";
 
 const ProfilePage = ({ token }) => {
   const [stays, setStays] = useState([]);
@@ -28,6 +29,7 @@ const ProfilePage = ({ token }) => {
   return (
     <DefaultPage>
       <h1>Profile</h1>
+      <ProfileInfo token={token} />
       <StaysGrid stays={stays} />
       <AddStayForm token={token} />
     </DefaultPage>

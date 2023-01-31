@@ -17,4 +17,10 @@ userRouter.post("/logout", (req, res) => {
   res.json({ status: "ok", result: {} });
 });
 
+userRouter.get(
+  "/profile",
+  makeAuthMiddleware({ tokenType: "access" }),
+  userController.getShowProfile
+);
+
 module.exports = userRouter;
