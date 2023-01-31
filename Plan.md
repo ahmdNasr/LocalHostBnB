@@ -6,9 +6,12 @@
 - [DONE] Login
 - [DONE] Logout
 - [DONE] Stay Logged in Feature (Refresh token + Cookies)
-- Forgot Password
-- Edit Profile
-- Show Profile (of any user)
+
+- [Wed!!!] Forgot Password
+- [Wed!!!] Edit Profile
+- [Wed!!!] Change Password
+
+- [DONE] Show Profile (of any user)
 - [DONE] With his accomidations + rating(s)
 - [DONE] Offer Accommodations
 - View/Search Accommodations w/ Filter for
