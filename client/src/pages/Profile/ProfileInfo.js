@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { apiBaseUrl } from "../../api";
+import EditProfile from "./EditProfile";
 
 const ProfileInfo = ({ token }) => {
+  const [editMode, setEditMode] = useState(false);
   const [profileInfo, setProfileInfo] = useState({});
-  const [errorMessage, setErrorMessage] = useState([]);
-  console.log(profileInfo);
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     fetch(`${apiBaseUrl}/users/profile`, {
       method: "GET",
@@ -22,20 +24,42 @@ const ProfileInfo = ({ token }) => {
         }
       });
   }, []);
-  return (
-    <div>
-      <h2>
-        {profileInfo.firstName} {profileInfo.lastName}
-      </h2>
-      <p> {profileInfo.bio}</p>
-      <img
-        className="stay-host-avatar"
-        src={profileInfo.profilePicture}
-        alt={`${profileInfo.firstName} bild`}
+
+  if (editMode) {
+    return (
+      <EditProfile
+        token={token}
+        profileInfo={profileInfo}
+        onDone={(updatedProfileInfo) => {
+          setProfileInfo(updatedProfileInfo);
+          setEditMode(false);
+        }}
+        onCancel={() => {
+          setEditMode(false);
+        }}
       />
-      <p> {profileInfo.email}</p>
-    </div>
-  );
+    );
+  } else if (errorMessage) {
+    return <p className="error-message">{errorMessage}</p>;
+  } else {
+    return (
+      <div className="profile-info-container">
+        <div>
+          <h2>
+            {profileInfo.firstName} {profileInfo.lastName}
+          </h2>
+          <p>{profileInfo.bio}</p>
+          <img
+            className="user-profile-avatar"
+            src={`${apiBaseUrl}/img/${profileInfo.profilePicture}`}
+            alt={`${profileInfo.firstName} bild`}
+          />
+          <p>{profileInfo.email}</p>
+        </div>
+        <button onClick={() => setEditMode(true)}>Edit</button>
+      </div>
+    );
+  }
 };
 
 export default ProfileInfo;

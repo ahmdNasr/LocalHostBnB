@@ -1,3 +1,4 @@
+const multer = require("multer");
 const express = require("express");
 const { userController } = require("../controllers");
 const { makeAuthMiddleware } = require("../middleware/doAuth");
@@ -21,6 +22,20 @@ userRouter.get(
   "/profile",
   makeAuthMiddleware({ tokenType: "access" }),
   userController.getShowProfile
+);
+
+userRouter.put(
+  "/profile",
+  makeAuthMiddleware({ tokenType: "access" }),
+  multer({ dest: "imageUploads" }).single("profilePicture"), // multipart/form-data!
+  userController.putEditProfile
+);
+
+userRouter.post("/forgot-password", userController.postForgotPassword);
+userRouter.post(
+  "/reset-password",
+  makeAuthMiddleware({ tokenType: "password-reset" }),
+  userController.postResetPassword
 );
 
 module.exports = userRouter;

@@ -31,8 +31,6 @@ function makeAuthMiddleware({ tokenType = "access" }) {
       throw new Error("No Auth header");
     }
 
-    console.log(AuthHeader);
-
     const [authSchema, token] = AuthHeader.split(" ");
     if (authSchema !== "Bearer" || !token) {
       throw new Error("Unsupported auth schema");

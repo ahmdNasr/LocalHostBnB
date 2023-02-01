@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { apiBaseUrl } from "../api";
 
 const stayDefaultPicture =
   "https://a0.muscache.com/im/pictures/miso/Hosting-610511843622686196/original/19a492ca-0e15-4b4b-9711-6000b657c094.jpeg?im_w=1440";
@@ -12,7 +13,7 @@ const Stay = ({ stay }) => {
       >
         <img
           className="stay-host-avatar"
-          src={stay.host.profilePicture}
+          src={`${apiBaseUrl}/img/${stay.host.profilePicture}`}
           alt={`${stay.host.firstName} user avatar`}
         />
         {stay.host.firstName} {stay.host.lastName}

@@ -32,15 +32,11 @@ function configServer() {
     })
   );
 
-  // DELETME:
-  app.use((req, _, next) => {
-    console.log("req.session", req.session);
-    next();
-  });
-
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/stays", stayRouter);
   // app.use("/api/v1/chats", () => {});
+
+  app.use("/api/v1/img", express.static("imageUploads"));
 
   return new Promise((resolve, _) => {
     app.listen(PORT, () => {
