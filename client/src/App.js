@@ -11,6 +11,8 @@ import Protected from "./components/Protected";
 import { apiBaseUrl } from "./api";
 import LogoutPage from "./pages/Logout";
 import UserPage from "./pages/UserPage";
+import ForgotPasswordPage from "./pages/ForgotPassword";
+import ResetPasswordPage from "./pages/ResetPassword";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -55,6 +57,11 @@ function App() {
           <Route path="/login" element={<LoginPage setToken={setToken} />} />
           <Route path="/logout" element={<LogoutPage setToken={setToken} />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route
+            path="/reset-password/:resetPwdToken"
+            element={<ResetPasswordPage />}
+          />
           <Route
             path="/dashboard"
             element={

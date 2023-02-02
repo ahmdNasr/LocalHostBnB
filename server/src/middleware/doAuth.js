@@ -20,7 +20,10 @@ function makeAuthMiddleware({ tokenType = "access" }) {
       next();
     } catch (error) {
       console.log(error);
-      return res.status(401).json({ err: "Invalid auth, please login first" });
+      return res.status(401).json({
+        status: "error",
+        error: { message: "Unauthorized" },
+      });
     }
   };
 

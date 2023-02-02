@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
+import ForogtPasswordForm from "./ForogtPasswordForm";
 
-const LoginPage = ({ setToken }) => {
+const ForgotPasswordPage = () => {
   return (
     <div>
-      <h1>Login</h1>
-      <LoginForm setToken={setToken} />
+      <h1>Please enter your email to receive a password reset link</h1>
+      <ForogtPasswordForm />
       <p>
         Dont't have an account? <Link to="/register">Account ++</Link>
       </p>
@@ -17,4 +17,4 @@ const LoginPage = ({ setToken }) => {
   );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;

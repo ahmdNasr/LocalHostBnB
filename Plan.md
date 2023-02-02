@@ -7,8 +7,9 @@
 - [DONE] Logout
 - [DONE] Stay Logged in Feature (Refresh token + Cookies)
 
-- [Wed!!!] Forgot Password
-- [Wed!!!] Edit Profile
+- [DONE] Forgot Password
+- [Thu!!!] Facade/Client-Input-Validation implementieren !!
+- [DONE] Edit Profile
 - [Wed!!!] Change Password
 
 - [DONE] Show Profile (of any user)
@@ -29,7 +30,6 @@
 - Messaging with Hosts
 - Rating System (Stars + Comments)
 
-- Change Password
 - Save Favorites
 
 ## Entities / DB-Model
