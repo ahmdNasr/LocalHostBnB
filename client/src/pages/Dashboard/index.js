@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { apiBaseUrl } from "../../api";
 import DefaultPage from "../../components/DefaultPage";
 import StaysGrid from "../../components/StaysGrid";
+import StayFilters from "./StayFilters";
 
 const DashboardPage = ({ token }) => {
   const [stays, setStays] = useState([]);
@@ -28,6 +29,7 @@ const DashboardPage = ({ token }) => {
   return (
     <DefaultPage>
       <h1>Dashboard</h1>
+      <StayFilters />
       <StaysGrid stays={stays} />
       <p>{errorMessage}</p>
     </DefaultPage>

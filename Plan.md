@@ -8,7 +8,7 @@
 - [DONE] Stay Logged in Feature (Refresh token + Cookies)
 
 - [DONE] Forgot Password
-- [Thu!!!] Facade/Client-Input-Validation implementieren !!
+- [DONE] Facade/Client-Input-Validation implementieren !!
 - [DONE] Edit Profile
 - [Wed!!!] Change Password
 

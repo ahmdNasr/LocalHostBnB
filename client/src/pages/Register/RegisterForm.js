@@ -8,8 +8,8 @@ const RegisterForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [profilePicture, setProfilePicture] = useState(null);
-  const [bio, setBio] = useState("");
+  // const [profilePicture, setProfilePicture] = useState(null);
+  // const [bio, setBio] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -29,8 +29,8 @@ const RegisterForm = () => {
         email,
         password,
         // FIXME: use multipart/form-data and upload the file as blob!!!
-        profilePicture,
-        bio,
+        // profilePicture,
+        // bio,
       }),
     })
       .then((res) => res.json())
