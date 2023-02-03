@@ -24,8 +24,20 @@ const getListStays = catchErrors(async (req, res) => {
   const hostId = profileStaysOnly
     ? req.verifiedUserClaims.sub
     : req.query.hostId;
+
+  const filter = {
+    location: req.query.location,
+    priceMin: Number(req.query.priceMin),
+    priceMax: Number(req.query.priceMax),
+    dateStart: Number(req.query.dateStart),
+    dateEnd: Number(req.query.dateEnd),
+  };
   const loggedInUserId = req.verifiedUserClaims.sub;
-  const result = await StayService.listStays({ hostId, loggedInUserId });
+  const result = await StayService.listStays({
+    hostId,
+    loggedInUserId,
+    filter,
+  });
   return res.json({
     status: "ok",
     result,

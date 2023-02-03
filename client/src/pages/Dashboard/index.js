@@ -8,8 +8,10 @@ const DashboardPage = ({ token }) => {
   const [stays, setStays] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [filterQueryString, setFilterQueryString] = useState("");
+
   useEffect(() => {
-    fetch(`${apiBaseUrl}/stays/`, {
+    fetch(`${apiBaseUrl}/stays?${filterQueryString}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -24,12 +26,14 @@ const DashboardPage = ({ token }) => {
           setErrorMessage(error.message);
         }
       });
-  }, []);
+  }, [filterQueryString, token]);
 
   return (
     <DefaultPage>
       <h1>Dashboard</h1>
-      <StayFilters />
+      <StayFilters
+        onFilter={(newFilterString) => setFilterQueryString(newFilterString)}
+      />
       <StaysGrid stays={stays} />
       <p>{errorMessage}</p>
     </DefaultPage>

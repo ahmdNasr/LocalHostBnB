@@ -26,5 +26,4 @@ stayRouter.post(
   stayController.postOfferStay
 );
 
-
 module.exports = stayRouter;

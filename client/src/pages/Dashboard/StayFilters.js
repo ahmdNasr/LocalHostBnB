@@ -4,10 +4,32 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const StayFilters = () => {
+const StayFilters = ({ onFilter }) => {
   const [location, setLocation] = React.useState("");
   const [priceRange, setPriceRange] = React.useState([10, 100]);
   const [dateRange, setDateRange] = React.useState([new Date(), new Date()]);
+
+  const filterStays = (event) => {
+    event.preventDefault();
+
+    const [priceMin, priceMax] = priceRange;
+    const [dateStart, dateEnd] = dateRange;
+
+    const staysFilterQueryString = new URLSearchParams({
+      location,
+      priceMin,
+      priceMax,
+      dateStart: dateStart.getTime(),
+      dateEnd: dateEnd.getTime(),
+    }).toString();
+
+    onFilter(staysFilterQueryString);
+  };
+
+  const resetFilter = (event) => {
+    event.preventDefault();
+    onFilter("");
+  };
 
   return (
     <div>
@@ -39,6 +61,9 @@ const StayFilters = () => {
           value={priceRange}
           setValue={setPriceRange}
         />
+
+        <button onClick={resetFilter}>Reset</button>
+        <button onClick={filterStays}>Filter</button>
       </form>
     </div>
   );
